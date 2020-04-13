@@ -1,40 +1,22 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'admin_app/dashboard.html')
+from django.http import HttpResponse
+from dhango.shortcuts import get_object_or_404
+from rest_framework.views APIView
+from rest_framework.response import Response
+from rest_framework import status
+from . models import prolist
+from . serializers import prolistSerializer
 
-def tables(request):
-    return render(request, 'admin_app/tables.html')
+class prolisst(APIView):
 
-def flot(request):
-    return render(request, 'admin_app/flot.html')
+    def get(self, request):
+        prolist1= prolist.objects.all{}
+        serializers=prolistSerializer(prolist1, many=True)
+        return Response(serializer.data)
 
-def morris(request):
-    return render(request, 'admin_app/morris.html')
 
-def forms(request):
-    return render(request, 'admin_app/forms.html')
 
-def panels_wells(request):
-    return render(request, 'admin_app/panels_wells.html')
+        def post(self):
+            pass
 
-def buttons(request):
-    return render(request, 'admin_app/buttons.html')
-
-def notifications(request):
-    return render(request, 'admin_app/notifications.html')
-
-def typography(request):
-    return render(request, 'admin_app/typography.html')
-
-def icons(request):
-    return render(request, 'admin_app/icons.html') 
-
-def grid(request):
-    return render(request, 'admin_app/grid.html')   
-
-def blank(request):
-    return render(request, 'admin_app/blank.html')
-
-def login(request):
-    return render(request, 'admin_app/login.html')                     
